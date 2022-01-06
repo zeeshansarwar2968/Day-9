@@ -1,0 +1,460 @@
+QUESTION-1:
+
+Solving problems using array functions on rest countries data.
+a.>  Get all the countries from Asia continent /region using Filter function
+b.>  Get all the countries with a population of less than 2 lakhs using Filter function
+c.>  Print the following details name, capital, flag using forEach function
+d.>  Print the total population of countries using reduce function
+e.>  Print the country which uses US Dollars as currency.
+
+
+
+a.>  Get all the countries from Asia continent /region using Filter function
+
+CODE:
+
+var xhr1 = new XMLHttpRequest();
+
+xhr1.open("GET", "https://raw.githubusercontent.com/rvsp/restcountries-json-data/master/res-countries.json");
+
+xhr1.onload = function () {
+  if (xhr1.status >= 200 && xhr1.status < 300) {
+    let data1 = JSON.parse(this.response);
+    var totalPopulation = data1.filter((data)=>{
+        if(data.region == "Asia") {
+            console.log(data.name);
+        }
+    } );
+  }
+};
+xhr1.send();
+
+
+OUTPUT:
+
+script.js:10 Afghanistan
+script.js:10 Armenia
+script.js:10 Azerbaijan
+script.js:10 Bahrain
+script.js:10 Bangladesh
+script.js:10 Bhutan
+script.js:10 Brunei Darussalam
+script.js:10 Cambodia
+script.js:10 China
+script.js:10 Georgia
+script.js:10 Hong Kong
+script.js:10 India
+script.js:10 Indonesia
+script.js:10 Iran (Islamic Republic of)
+script.js:10 Iraq
+script.js:10 Israel
+script.js:10 Japan
+script.js:10 Jordan
+script.js:10 Kazakhstan
+script.js:10 Kuwait
+script.js:10 Kyrgyzstan
+script.js:10 Lao People's Democratic Republic
+script.js:10 Lebanon
+script.js:10 Macao
+script.js:10 Malaysia
+script.js:10 Maldives
+script.js:10 Mongolia
+script.js:10 Myanmar
+script.js:10 Nepal
+script.js:10 Korea (Democratic People's Republic of)
+script.js:10 Oman
+script.js:10 Pakistan
+script.js:10 Palestine, State of
+script.js:10 Philippines
+script.js:10 Qatar
+script.js:10 Saudi Arabia
+script.js:10 Singapore
+script.js:10 Korea (Republic of)
+script.js:10 Sri Lanka
+script.js:10 Syrian Arab Republic
+script.js:10 Taiwan
+script.js:10 Tajikistan
+script.js:10 Thailand
+script.js:10 Timor-Leste
+script.js:10 Turkey
+script.js:10 Turkmenistan
+script.js:10 United Arab Emirates
+script.js:10 Uzbekistan
+script.js:10 Viet Nam
+script.js:10 Yemen
+
+
+b.>  Get all the countries with a population of less than 2 lakhs using Filter function
+
+
+CODE:
+
+var xhr1 = new XMLHttpRequest();
+
+xhr1.open("GET", "https://raw.githubusercontent.com/rvsp/restcountries-json-data/master/res-countries.json");
+
+xhr1.onload = function () {
+  if (xhr1.status >= 200 && xhr1.status < 300) {
+    let data1 = JSON.parse(this.response);
+    var totalPopulation = data1.filter((data)=>{
+        if(data.population < 200000) {
+            console.log(data.name);
+        }
+    } );
+  }
+};
+xhr1.send();
+
+
+OUTPUT:
+
+script.js:10 Åland Islands
+script.js:10 American Samoa
+script.js:10 Andorra
+script.js:10 Anguilla
+script.js:10 Antarctica
+script.js:10 Antigua and Barbuda
+script.js:10 Aruba
+script.js:10 Bermuda
+script.js:10 Bonaire, Sint Eustatius and Saba
+script.js:10 Bouvet Island
+script.js:10 British Indian Ocean Territory
+script.js:10 United States Minor Outlying Islands
+script.js:10 Virgin Islands (British)
+script.js:10 Virgin Islands (U.S.)
+script.js:10 Cayman Islands
+script.js:10 Christmas Island
+script.js:10 Cocos (Keeling) Islands
+script.js:10 Cook Islands
+script.js:10 Curaçao
+script.js:10 Dominica
+script.js:10 Falkland Islands (Malvinas)
+script.js:10 Faroe Islands
+script.js:10 French Southern Territories
+script.js:10 Gibraltar
+script.js:10 Greenland
+script.js:10 Grenada
+script.js:10 Guam
+script.js:10 Guernsey
+script.js:10 Heard Island and McDonald Islands
+script.js:10 Holy See
+script.js:10 Isle of Man
+script.js:10 Jersey
+script.js:10 Kiribati
+script.js:10 Liechtenstein
+script.js:10 Marshall Islands
+script.js:10 Micronesia (Federated States of)
+script.js:10 Monaco
+script.js:10 Montserrat
+script.js:10 Nauru
+script.js:10 Niue
+script.js:10 Norfolk Island
+script.js:10 Northern Mariana Islands
+script.js:10 Palau
+script.js:10 Pitcairn
+script.js:10 Saint Barthélemy
+script.js:10 Saint Helena, Ascension and Tristan da Cunha
+script.js:10 Saint Kitts and Nevis
+script.js:10 Saint Lucia
+script.js:10 Saint Martin (French part)
+script.js:10 Saint Pierre and Miquelon
+script.js:10 Saint Vincent and the Grenadines
+script.js:10 Samoa
+script.js:10 San Marino
+script.js:10 Sao Tome and Principe
+script.js:10 Seychelles
+script.js:10 Sint Maarten (Dutch part)
+script.js:10 South Georgia and the South Sandwich Islands
+script.js:10 Svalbard and Jan Mayen
+script.js:10 Tokelau
+script.js:10 Tonga
+script.js:10 Turks and Caicos Islands
+script.js:10 Tuvalu
+script.js:10 Wallis and Futuna
+
+
+
+c.>  Print the following details name, capital, flag using forEach function
+
+CODE:
+
+var xhr1 = new XMLHttpRequest();
+
+xhr1.open("GET", "https://raw.githubusercontent.com/rvsp/restcountries-json-data/master/res-countries.json");
+
+xhr1.onload = function () {
+  if (xhr1.status >= 200 && xhr1.status < 300) {
+    let data1 = JSON.parse(this.response);
+    var arr1 = [];
+    data1.forEach(function (data){
+        console.log(
+            `
+            ${data.name}
+            ${data.capital}
+            ${data.flag}
+            `
+        )
+    })
+  }
+};
+xhr1.send();
+
+OUTPUT:
+
+script.js:10
+Afghanistan
+Kabul
+https://restcountries.eu/data/afg.svg
+
+script.js:10 
+Åland Islands
+Mariehamn
+https://restcountries.eu/data/ala.svg
+
+script.js:10 
+Albania
+Tirana
+https://restcountries.eu/data/alb.svg
+
+script.js:10 
+Algeria
+Algiers
+https://restcountries.eu/data/dza.svg
+
+script.js:10 
+American Samoa
+Pago Pago
+https://restcountries.eu/data/asm.svg
+
+script.js:10 
+Andorra
+Andorra la Vella
+https://restcountries.eu/data/and.svg
+
+script.js:10 
+Angola
+Luanda
+https://restcountries.eu/data/ago.svg
+
+script.js:10 
+Anguilla
+The Valley
+https://restcountries.eu/data/aia.svg
+
+script.js:10 
+Antarctica
+
+https://restcountries.eu/data/ata.svg
+
+script.js:10 
+Antigua and Barbuda
+Saint John's
+https://restcountries.eu/data/atg.svg
+
+script.js:10 
+Argentina
+Buenos Aires
+https://restcountries.eu/data/arg.svg
+
+script.js:10 
+Armenia
+Yerevan
+https://restcountries.eu/data/arm.svg
+
+script.js:10 
+Aruba
+Oranjestad
+https://restcountries.eu/data/abw.svg
+
+script.js:10 
+Australia
+Canberra
+https://restcountries.eu/data/aus.svg
+
+script.js:10 
+Austria
+Vienna
+https://restcountries.eu/data/aut.svg
+
+script.js:10 
+Azerbaijan
+Baku
+https://restcountries.eu/data/aze.svg
+
+script.js:10 
+Bahamas
+Nassau
+https://restcountries.eu/data/bhs.svg
+
+script.js:10 
+Bahrain
+Manama
+https://restcountries.eu/data/bhr.svg
+
+script.js:10 
+Bangladesh
+Dhaka
+https://restcountries.eu/data/bgd.svg
+
+script.js:10 
+Barbados
+Bridgetown
+https://restcountries.eu/data/brb.svg
+
+script.js:10 
+Belarus
+Minsk
+https://restcountries.eu/data/blr.svg
+
+script.js:10 
+Belgium
+Brussels
+https://restcountries.eu/data/bel.svg
+
+script.js:10 
+Belize
+Belmopan
+https://restcountries.eu/data/blz.svg
+
+script.js:10 
+Benin
+Porto-Novo
+https://restcountries.eu/data/ben.svg
+
+script.js:10 
+Bermuda
+Hamilton
+https://restcountries.eu/data/bmu.svg
+
+script.js:10 
+Bhutan
+Thimphu
+https://restcountries.eu/data/btn.svg
+
+script.js:10 
+Bolivia (Plurinational State of)
+Sucre
+https://restcountries.eu/data/bol.svg
+
+script.js:10 
+Bonaire, Sint Eustatius and Saba
+Kralendijk
+https://restcountries.eu/data/bes.svg
+
+script.js:10 
+Bosnia and Herzegovina
+Sarajevo
+https://restcountries.eu/data/bih.svg
+
+//There are a lot more lines in the output, but have shortened the output for sake of brevity.
+
+
+
+d.>  Print the total population of countries using reduce function
+
+CODE:
+
+var xhr1 = new XMLHttpRequest();
+
+xhr1.open("GET", "https://raw.githubusercontent.com/rvsp/restcountries-json-data/master/res-countries.json");
+
+xhr1.onload = function () {
+  if (xhr1.status >= 200 && xhr1.status < 300) {
+    let data1 = JSON.parse(this.response);
+    var totalPopulation = data1.reduce((acc,curr)=> acc+curr.population,0);
+    console.log(totalPopulation);
+  }
+};
+xhr1.send();
+
+OUTPUT:
+
+script.js:9 7349137231
+
+
+e.>  Print the country which uses US Dollars as currency.
+
+CODE:
+
+var xhr1 = new XMLHttpRequest();
+
+xhr1.open("GET", "https://raw.githubusercontent.com/rvsp/restcountries-json-data/master/res-countries.json");
+
+xhr1.onload = function () {
+  if (xhr1.status >= 200 && xhr1.status < 300) {
+    let data1 = JSON.parse(this.response);
+    var totalPopulation = data1.filter((data)=>{
+        if(data.currencies[0].symbol == "$") {
+            console.log(data.name);
+        }
+    } );
+  }
+};
+xhr1.send();
+
+OUTPUT:
+
+script.js:10 American Samoa
+script.js:10 Anguilla
+script.js:10 Antarctica
+script.js:10 Antigua and Barbuda
+script.js:10 Argentina
+script.js:10 Australia
+script.js:10 Bahamas
+script.js:10 Barbados
+script.js:10 Belize
+script.js:10 Bermuda
+script.js:10 Bonaire, Sint Eustatius and Saba
+script.js:10 British Indian Ocean Territory
+script.js:10 United States Minor Outlying Islands
+script.js:10 Virgin Islands (British)
+script.js:10 Virgin Islands (U.S.)
+script.js:10 Brunei Darussalam
+script.js:10 Canada
+script.js:10 Cayman Islands
+script.js:10 Chile
+script.js:10 Christmas Island
+script.js:10 Cocos (Keeling) Islands
+script.js:10 Colombia
+script.js:10 Cook Islands
+script.js:10 Cuba
+script.js:10 Dominica
+script.js:10 Dominican Republic
+script.js:10 Ecuador
+script.js:10 El Salvador
+script.js:10 Fiji
+script.js:10 Grenada
+script.js:10 Guam
+script.js:10 Guyana
+script.js:10 Heard Island and McDonald Islands
+script.js:10 Hong Kong
+script.js:10 Jamaica
+script.js:10 Kiribati
+script.js:10 Liberia
+script.js:10 Marshall Islands
+script.js:10 Mexico
+script.js:10 Micronesia (Federated States of)
+script.js:10 Montserrat
+script.js:10 Namibia
+script.js:10 Nauru
+script.js:10 New Zealand
+script.js:10 Niue
+script.js:10 Norfolk Island
+script.js:10 Northern Mariana Islands
+script.js:10 Palau
+script.js:10 Pitcairn
+script.js:10 Puerto Rico
+script.js:10 Saint Kitts and Nevis
+script.js:10 Saint Lucia
+script.js:10 Saint Vincent and the Grenadines
+script.js:10 Singapore
+script.js:10 Solomon Islands
+script.js:10 Suriname
+script.js:10 Taiwan
+script.js:10 Timor-Leste
+script.js:10 Tokelau
+script.js:10 Trinidad and Tobago
+script.js:10 Turks and Caicos Islands
+script.js:10 Tuvalu
+script.js:10 United States of America
+script.js:10 Uruguay
